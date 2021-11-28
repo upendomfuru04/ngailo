@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>MYFAIR</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;600;700&display=swap');
+	:root{
+		--orange:#d6bd70;
+		--text-color-1:#444;
+		--texr-color-2:#666;
+		--bg-color-1:#fff;
+		--bg-color-2:#eee;
+		--box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1);
+	}
+
+
+	*{
+		font-family: 'poppins' sans-serif;
+		margin: 0; padding: 0;
+		box-sizing: border-box;
+		outline: none; border: none;
+		text-decoration: none;
+		text-transform: capitalize;
+		transition: all .2s linear;
+	}
+
+	html{
+		font-size: 62.6%;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+		scroll-padding-top:7rem; 
+	}
+
+	html::-webkit-scrollbar{
+		width: 8rem;
+	}
+
+	html::-webkit-scrollbar-track{
+		background: transparent;
+	}
+
+	html::-webkit-scrollbar-thumb{
+		background:var(--orange);
+	}
+
+	body{
+		background: var(--bg-color-2);
+	}
+
+	section{
+		padding: 2rem 7%;
+	}
+
+	body.active{
+		--text-color-1:#fff;
+		--texr-color-2:#eee;
+		--bg-color-1:#333;
+		--bg-color-2:#222;
+		--box-shadow: 0.5rem 1.5rem rgba(0,0,0,.4);
+
+	}
+
+	.btn{
+		margin-top: 1rem;
+		display: inline-block;
+		padding: 1rem 2rem;
+		font-size: 1.7rem;
+		color:var(--);
+		background: var(--orange);
+		border-radius: .5rem;
+		cursor: pointer;
+	}
+.btn:hover{
+	letter-spacing: .2rem;
+}
+
+
+.header{
+	position: fixed;
+	top: 0; left: 0; right: 0;
+	background: var(--bg-color-1);
+	box-shadow: var(--box-shadow);
+	padding: 1.5rem 7%;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.header .logo{
+	width: 6.5rem
+}
+
+.header .search-form{
+	background: var(--big-color-2);
+	border-radius: .5rem;
+	display: flex;
+	align-items: center;
+	height: 4.5rem;
+	width: 50rem;
+}
+.header .search-form input{
+	height: 100%;
+	width: 100%;
+	background: none;
+	text-transform: none;
+	font-size: 1.5rem;
+	color: var(--text-color-1);
+	padding: 1rem;
+}
+
+.header .search-form label{
+	font-size: 2rem;
+	margin-right: 1.5rem;
+	color: var(--text-color-1);
+	cursor: pointer;
+}
+
+.header .search-form label:hover{
+	color:var(--orange)
+}
+
+.header .icons div{
+	height: 4.5rem;
+	width: 4.5rem;
+	line-height: 4.5rem;
+	font-size: 2rem;
+	border-radius: .5rem;
+	margin-left: .5rem;
+	background: var(--bg-color-2);
+	color: var(--text-color-1);
+	cursor: pointer;
+	text-align: center;
+}
+
+.header .icons div:hover{
+	color:#fff;
+	background:var(--orange);
+}
+
+#search-btn{
+	display: none;
+}
+
+.header .navbar{
+	position: absolute;
+	top: 115%; right: 7%;
+	background:var(--bg-color-1);
+	border-radius: .5rem;
+	box-shadow: var(--box-shadow);
+	width: 25rem;
+	transform: scale(0);
+	transform-origin: top right;
+}
+
+.header .navbar .active{
+	transform: scale(1);
+}
+
+
+.header .navbar a{
+	display: block;
+	margin: 1rem;
+	padding: 1rem;
+	font-size: 1.5rem;
+	color: var(--text-color-1);
+	border-radius: .5rem;
+}
+
+.header .navbar a:hover{
+	color:var(--orange);
+	background:var(--bg-color-2) ;
+	padding-left: 2rem;
+}
+
+
+
+.header .login-form{
+	position: absolute;
+	top: 115%; right: 7%;
+	background:#fff;
+	border-radius: .5rem;
+	box-shadow:var(--box-shadow);
+	width: 28rem;
+	padding: 1rem;
+	transform: scale(0);
+	transform-origin: top right;
+
+}
+.header .login-form.active{
+	transform: scale(1);
+}
+
+.header .login-form .inputBox{
+	margin-bottom: 1rem;
+}
+
+.header .login-form .inputBox span{
+	font-size: 1.7rem;
+	color:var(--texr-color-2);
+}
+
+.header .login-form .inputBox input{
+	font-size: 1.5rem;
+	color: var(--texr-color-1);
+	border-radius: .5rem;
+	padding: 1rem;
+	background:var(--bg-color-2);
+	width: 100%
+	text-transform:none;
+	margin: 2rem 0;
+}
+
+.header .login-form .remember{
+	display: flex;
+	align-items: center;
+	gap:.5rem;
+	padding: .5rem 0;
+}
+
+.header .login-form .remember label{
+	color:var(--texr-color-2);
+	font-size: 1.5rem;
+	cursor: pointer;
+
+}
+
+.header .login-form .btn{
+	width: 100%;
+
+}
+
+.home{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap:1.5rem;
+	padding-top: 7rem;
+}
+
+.home .image{
+	flex:1 1 45rem;
+}
+
+.home .image img{
+	width: 100%;
+}
+
+.home .content{
+	flex:1 1 45rem;
+}
+
+.home .content h3{
+	color: var(--text-color-1);
+	font-size: 4rem;
+}
+
+.home .content p{
+	color: var(--text-color-2);
+	font-size: 2.0rem;
+	line-height: 1.7;
+	padding: 1rem 0;
+}
+
+
+
+.Services .box-container{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+    gap:1.5rem;
+}
+
+.Services .box-container .box{
+	background:var(--bg-color-1);
+	border-radius: .5rem;
+	box-shadow: var(--box-shadow);
+	position: relative;
+	padding: 2rem;
+}
+
+.Services .box-container .box span{
+    position: absolute;
+    top: 5rem; right:  2rem;
+    color: var(--texr-color-2);
+    font-weight: bolder;
+    font-size: 4rem;
+}
+
+.Services .box-container .box i{
+	height: 6rem;
+	width: 6rem;
+	line-height: 6rem;
+	text-align: center;
+	font-size: 2.5rem;
+	color: #fff;
+	background: var(--orange);
+	border-radius: 50%;
+	margin-bottom: .5rem;
+}
+
+
+.Services .box-container .box h3{
+	color: var(--text-color-1);
+	font-size: 1.3rem;
+	padding: .7rem 0;
+}
+
+.Services .box-container .box p{
+	color: var(--text-color-2);
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+
+
+
+
+
+
+
+
+
+.heading{
+	text-align: center;
+	padding-bottom: 2rem;
+	color: var(--text-color-1);
+	font-size:4rem;
+}
+.heading span{
+	position: relative;
+	z-index: 0;
+}
+
+.heading span::before{
+	content: '';
+	position: absolute;
+	bottom: 1rem; left: 0;
+	z-index: -1;
+	background: var(--orange);
+	height: 100%;
+	width: 100%;
+	clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+
+
+	.header .navbar{
+		right: :2rem; 
+	}
+	.header .login-form{
+		right: :2rem; 
+	}
+	#search-btn{
+	display: inline-block;
+}
+	.header .search-form{
+		position: absolute;
+		top: 115%; right: :2rem; 
+		background: #fff;
+		border-radius: .5rem;
+		width: 90%;
+		box-shadow:var(--box-shadow);
+		transform: scale(0);
+		transform-origin:top right;
+	}
+
+	.header .search-form.active{
+		transform: scale(1);
+	}
+
+
+}
+
+
+@media screen and (max-width: 450px){
+
+
+	html{
+		font-size: 50%;
+	}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<body>
+
+
+<header class="header">
+
+<img src="qq.png" class="logo">
+
+<form action="" class="search-form">
+	<input type="search" name="" placeholder="search here..." id="searchBox">
+	<label for="searchBox" class="fa fa-search"></label>
+</form>
+
+<div class="icons">
+	<div class="fas fa-search" id="search-btn"></div>
+	<div class="fas fa-moon" id="theme-btn"></div>
+	<div class="fas fa-user" id="login-btn"></div>
+	<div class="fas fa-bars" id="menu-btn"></div>
+</div>
+<nav class="navbar">
+	<a href="#">home</a>
+	<a href="#">packages</a>
+	<a href="#">Service</a>
+	<a href="#">pricing</a>
+	<a href="#">review</a>
+	<a href="#">contact</a>
+	<a href="#">blogs</a>
+</nav>
+
+
+<form action="" class="login-form">
+	<div class="inputBox">
+		<span>username</span>
+		<input type="text" placeholder="enter your name">
+	</div>
+	<div class="inputBox">
+		<span>password</span>
+		<input type="text" placeholder="enter your password">
+	</div>
+	<div class="remember">
+		<input type="checkbox" name="" id="login-remember">
+		<label for="login-remember">remember me</label>
+	</div>
+
+	<input type="submit" class="btn" value="login">
+</form>
+</header>
+
+
+<section class="home">
+	<div class="image">
+		<img src="fafa.jpg">
+	</div>
+	<div class="content">
+		<h3>Adventure is worthwhile</h3>
+		<p>Coming together is a beginning. Keeping together is progress. Working together is success.</p>
+		<a href="#" class="btn">explore now</a>
+	</div>
+</section>
+
+<section class="Services">
+	<h1 class="heading">our <span>services</span></h1>
+
+	<div class="box-container">
+		
+		<div class="box">
+			<span>01</span>
+			<i class="fas fa-hotel"></i>
+			<h3>affordable hotel</h3>
+			<p>Coming together is a beginning. Keeping together is progress. Working together is success</p>
+		</div>
+		<div class="box">
+			<span>02</span>
+			<i class="fas fa-plane"></i>
+			<h3>fastest travel</h3>
+			<p>Coming together is a beginning. Keeping together is progress. Working together is success</p>
+		</div>
+		<div class="box">
+			<span>03</span>
+			<i class="fas fa-utensils"></i>
+			<h3>food and drinks</h3>
+			<p>Coming together is a beginning. Keeping together is progress. Working together is success</p>
+		</div>
+		<div class="box">
+			<span>04</span>
+			<i class="fas fa-globe"></i>
+			<h3>around the world</h3>
+			<p>Coming together is a beginning. Keeping together is progress. Working together is success</p>
+		</div>
+
+		<div class="box">
+			<span>05</span>
+			<i class="fas fa-hiking"></i>
+			<h3>new adventures</h3>
+			<p>Coming together is a beginning. Keeping together is progress. Working together is success</p>
+		</div>
+
+
+		
+	</div>
+	
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="js/script.js">
+	let navbar = document.querySelector('.navbar')
+
+	document.querySelector('#menu-btn').onclick = () =>{
+        navbar.classList.toggle('active');
+        loginForm.classList.remove('active');
+		searchForm.classList.remove('active');
+	}
+
+
+	let loginForm = document.querySelector('.login-form')
+
+	document.querySelector('#login-btn').onclick = () =>{
+        loginForm.classList.toggle('active');
+        navbar.classList.remove('active');
+		searchForm.classList.remove('active');
+	}
+
+	let searchForm = document.querySelector('.search-form')
+	
+	document.querySelector('#search-btn').onclick = () =>{
+        searchForm.classList.toggle('active');
+        navbar.classList.remove('active');
+		loginForm.classList.remove('active');
+	}
+
+	window.onscroll = () =>{
+		navbar.classList.remove('active');
+		loginForm.classList.remove('active');
+		searchForm.classList.remove('active');
+	}
+
+
+	let themeBtn = document.querySelector('theme-btn');
+
+
+    themeBtn.onclick = () =>{
+	    themeBtn.classList.toggle('fa-sun');
+    }
+
+    if (themeBtn.classList contains('fa-sun')) {
+    	document.body.classList.add('active')
+    }else{
+    	document.body.classList.remove('active')
+    }
+</script>
+</html>
