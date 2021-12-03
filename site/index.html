@@ -4,7 +4,7 @@
 	<title>MYFAIR</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-compatible" content="IE-edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
@@ -15,13 +15,14 @@
 
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@100;300;400;500;600;&display=swap');
 	:root{
 		--orange:#d6bd70;
 		--text-color-1:#444;
 		--texr-color-2:#666;
 		--bg-color-1:#fff;
 		--bg-color-2:#eee;
+		--black:#130f40;
 		--box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1);
 	}
 
@@ -56,21 +57,9 @@
 		border-radius: 5rem;
 	}
 
-	body{
-		background: var(--bg-color-2);
-	}
 
 	section{
 		padding: 2rem 7%;
-	}
-
-	body.active{
-		--text-color-1:#fff;
-		--texr-color-2:#eee;
-		--bg-color-1:#333;
-		--bg-color-2:#222;
-		--box-shadow: 0.5rem 1.5rem rgba(0,0,0,.4);
-
 	}
 
 	.btn{
@@ -78,7 +67,7 @@
 		display: inline-block;
 		padding: 1rem 2rem;
 		font-size: 1.7rem;
-		color:var(--);
+		color:var(--black);
 		background: var(--orange);
 		border-radius: .5rem;
 		cursor: pointer;
@@ -92,9 +81,8 @@
 	position: fixed;
 	top: 0; left: 0; right: 0;
 	background: var(--bg-color-1);
-	box-shadow: var(--box-shadow);
-	padding: 1.5rem 7%;
-	z-index: 1000;
+	padding: 3rem 9%;
+	z-index: 999;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -102,147 +90,162 @@
 }
 
 .header .logo{
-	width: 6.5rem
+	font-size: 2.5rem;
+	color: #130f40;
+	font-weight: bolder;
 }
-
-.header .search-form{
-	background: var(--big-color-2);
-	border-radius: .5rem;
-	display: flex;
-	align-items: center;
-	height: 4.5rem;
-	width: 50rem;
-}
-.header .search-form input{
-	height: 100%;
-	width: 100%;
-	background: none;
-	text-transform: none;
-	font-size: 1.5rem;
-	color: var(--text-color-1);
-	padding: 1rem;
-}
-
-.header .search-form label{
-	font-size: 2rem;
-	margin-right: 1.5rem;
-	color: var(--text-color-1);
-	cursor: pointer;
-}
-
-.header .search-form label:hover{
-	color:var(--orange)
-}
-
-.header .icons div{
-	height: 4.5rem;
-	width: 4.5rem;
-	line-height: 4.5rem;
-	font-size: 2rem;
-	border-radius: .5rem;
-	margin-left: .5rem;
-	background: var(--bg-color-2);
-	color: var(--text-color-1);
-	cursor: pointer;
-	text-align: center;
-}
-
-.header .icons div:hover{
-	color:#fff;
-	background:var(--orange);
-}
-
-#search-btn{
-	display: none;
-}
-
-.header .navbar{
-	position: absolute;
-	top: 115%; right: 7%;
-	background:var(--bg-color-1);
-	border-radius: .5rem;
-	box-shadow: var(--box-shadow);
-	width: 25rem;
-	transform: scale(0);
-	transform-origin: top right;
-}
-
-.header .navbar .active{
-	transform: scale(1);
+.header .logo span{
+	color: var(--orange);
 }
 
 
 .header .navbar a{
-	display: block;
-	margin: 1rem;
-	padding: 1rem;
-	font-size: 1.5rem;
-	color: var(--text-color-1);
-	border-radius: .5rem;
+	margin:0 1rem;
+	font-size: 1.7rem;
+	color: var(--black);
 }
 
 .header .navbar a:hover{
 	color:var(--orange);
-	background:var(--bg-color-2) ;
 	padding-left: 2rem;
 }
 
-
-
-.header .login-form{
-	position: absolute;
-	top: 115%; right: 7%;
-	background:#fff;
-	border-radius: .5rem;
-	box-shadow:var(--box-shadow);
-	width: 28rem;
-	padding: 1rem;
-	transform: scale(0);
-	transform-origin: top right;
-
+.header .btn{
+	margin-top: 0;
 }
-.header .login-form.active{
-	transform: scale(1);
+#menu-btn{
+	font-size: 2.5rem;
+	color: var(--orange);
+	cursor: pointer;
+	display: none;
 }
 
-.header .login-form .inputBox{
-	margin-bottom: 1rem;
+.header #login-btn i{
+	font-size: 2.5rem;
+	color: var(--orange);
+	cursor: pointer;
+	display: none;
+}
+.header .active{
+	box-shadow: var(--box-shadow);
+	padding: 2rem 9%;
 }
 
-.header .login-form .inputBox span{
-	font-size: 1.7rem;
-	color:var(--texr-color-2);
-}
-
-.header .login-form .inputBox input{
-	font-size: 1.5rem;
-	color: var(--texr-color-1);
-	border-radius: .5rem;
-	padding: 1rem;
-	background:var(--bg-color-2);
-	width: 100%
-	text-transform:none;
-	margin: 2rem 0;
-}
-
-.header .login-form .remember{
+.login-form-container{
+	position: fixed;
+	top: 105%; left: 0;
+	z-index: 1000;
+	height: 100%; 
+	width: 100%;
+	background: rgba(255,255,255,.9);
 	display: flex;
 	align-items: center;
-	gap:.5rem;
-	padding: .5rem 0;
+	justify-content: center;
+	opacity: 0;
 }
 
-.header .login-form .remember label{
-	color:var(--texr-color-2);
-	font-size: 1.5rem;
-	cursor: pointer;
 
+.login-form-container form{
+	padding: 2rem;
+	margin: 2rem;
+	border-radius: .5rem;
+	box-shadow: var(--box-shadow);
+	background: #fff;
+	border: var(--border);
+	text-align: center;
+	width: 40rem;
 }
 
-.header .login-form .btn{
+.login-form-container form .buttons{
+	display: flex;
+	align-items: center;
+	gap:1rem;
+}
+
+.login-form-container form .btn{
+	display: block;
 	width: 100%;
-
+	margin: .5rem 0;
 }
+
+
+.login-form-container form h3{
+	color: var(--black);
+	font-size: 2.5rem;
+	padding-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+
+
+.login-form-container form .box{
+	margin: .7rem 0;
+	width: 100%;
+	text-transform: none;
+	color: var(--black);
+	font-size: 1.6rem;
+	padding: 1rem 1.2rem;
+	border-radius: .5rem;
+}
+
+.login-form-container form p{
+	padding: 1rem 0;
+	font-size: 1.5rem;
+	color: var(--text-color-1);
+}
+
+.login-form-container form p a{
+	color: var(--orange);
+	text-decoration: underline;
+}
+
+.login-form-container #close-login-form{
+	position: absolute;
+	top: 1.5rem;right: 2.5rem;
+	font-size: 5rem;
+	color: var(--black);
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .home{
 	display: flex;
@@ -557,13 +560,6 @@
 
 
 
-
-
-
-@import url(//cdn.rawgit.com/rtaibah/dubai-font-cdn/master/dubai-font.css);
-
-
-
 .testim {
 		
 		box-shadow: var(--box-shadow);
@@ -719,505 +715,66 @@
 }
 
 
-.testim .cont div.active .img img {
-    -webkit-animation: testim-show .5s ease-in-out forwards;            
-    -moz-animation: testim-show .5s ease-in-out forwards;            
-    -ms-animation: testim-show .5s ease-in-out forwards;            
-    -o-animation: testim-show .5s ease-in-out forwards;            
-    animation: testim-show .5s ease-in-out forwards;            
-}
 
-.testim .cont div.active h2 {
-    -webkit-animation: testim-content-in .4s ease-in-out forwards;    
-    -moz-animation: testim-content-in .4s ease-in-out forwards;    
-    -ms-animation: testim-content-in .4s ease-in-out forwards;    
-    -o-animation: testim-content-in .4s ease-in-out forwards;    
-    animation: testim-content-in .4s ease-in-out forwards;    
-}
 
-.testim .cont div.active p {
-    -webkit-animation: testim-content-in .5s ease-in-out forwards;    
-    -moz-animation: testim-content-in .5s ease-in-out forwards;    
-    -ms-animation: testim-content-in .5s ease-in-out forwards;    
-    -o-animation: testim-content-in .5s ease-in-out forwards;    
-    animation: testim-content-in .5s ease-in-out forwards;    
-}
-
-.testim .cont div.inactive .img img {
-    -webkit-animation: testim-hide .5s ease-in-out forwards;            
-    -moz-animation: testim-hide .5s ease-in-out forwards;            
-    -ms-animation: testim-hide .5s ease-in-out forwards;            
-    -o-animation: testim-hide .5s ease-in-out forwards;            
-    animation: testim-hide .5s ease-in-out forwards;            
-}
-
-.testim .cont div.inactive h2 {
-    -webkit-animation: testim-content-out .4s ease-in-out forwards;        
-    -moz-animation: testim-content-out .4s ease-in-out forwards;        
-    -ms-animation: testim-content-out .4s ease-in-out forwards;        
-    -o-animation: testim-content-out .4s ease-in-out forwards;        
-    animation: testim-content-out .4s ease-in-out forwards;        
-}
-
-.testim .cont div.inactive p {
-    -webkit-animation: testim-content-out .5s ease-in-out forwards;    
-    -moz-animation: testim-content-out .5s ease-in-out forwards;    
-    -ms-animation: testim-content-out .5s ease-in-out forwards;    
-    -o-animation: testim-content-out .5s ease-in-out forwards;    
-    animation: testim-content-out .5s ease-in-out forwards;    
-}
-
-@-webkit-keyframes testim-scale {
-    0% {
-        -webkit-box-shadow: 0px 0px 0px 0px #eee;
-        box-shadow: 0px 0px 0px 0px #eee;
-    }
-
-    35% {
-        -webkit-box-shadow: 0px 0px 10px 5px #eee;        
-        box-shadow: 0px 0px 10px 5px #eee;        
-    }
-
-    70% {
-        -webkit-box-shadow: 0px 0px 10px 5px #ea830e;        
-        box-shadow: 0px 0px 10px 5px #ea830e;        
-    }
-
-    100% {
-        -webkit-box-shadow: 0px 0px 0px 0px #ea830e;        
-        box-shadow: 0px 0px 0px 0px #ea830e;        
-    }
-}
-
-@-moz-keyframes testim-scale {
-    0% {
-        -moz-box-shadow: 0px 0px 0px 0px #eee;
-        box-shadow: 0px 0px 0px 0px #eee;
-    }
-
-    35% {
-        -moz-box-shadow: 0px 0px 10px 5px #eee;        
-        box-shadow: 0px 0px 10px 5px #eee;        
-    }
-
-    70% {
-        -moz-box-shadow: 0px 0px 10px 5px #ea830e;        
-        box-shadow: 0px 0px 10px 5px #ea830e;        
-    }
-
-    100% {
-        -moz-box-shadow: 0px 0px 0px 0px #ea830e;        
-        box-shadow: 0px 0px 0px 0px #ea830e;        
-    }
-}
-
-@-ms-keyframes testim-scale {
-    0% {
-        -ms-box-shadow: 0px 0px 0px 0px #eee;
-        box-shadow: 0px 0px 0px 0px #eee;
-    }
-
-    35% {
-        -ms-box-shadow: 0px 0px 10px 5px #eee;        
-        box-shadow: 0px 0px 10px 5px #eee;        
-    }
-
-    70% {
-        -ms-box-shadow: 0px 0px 10px 5px #ea830e;        
-        box-shadow: 0px 0px 10px 5px #ea830e;        
-    }
-
-    100% {
-        -ms-box-shadow: 0px 0px 0px 0px #ea830e;        
-        box-shadow: 0px 0px 0px 0px #ea830e;        
-    }
-}
-
-@-o-keyframes testim-scale {
-    0% {
-        -o-box-shadow: 0px 0px 0px 0px #eee;
-        box-shadow: 0px 0px 0px 0px #eee;
-    }
-
-    35% {
-        -o-box-shadow: 0px 0px 10px 5px #eee;        
-        box-shadow: 0px 0px 10px 5px #eee;        
-    }
-
-    70% {
-        -o-box-shadow: 0px 0px 10px 5px #ea830e;        
-        box-shadow: 0px 0px 10px 5px #ea830e;        
-    }
-
-    100% {
-        -o-box-shadow: 0px 0px 0px 0px #ea830e;        
-        box-shadow: 0px 0px 0px 0px #ea830e;        
-    }
-}
-
-@keyframes testim-scale {
-    0% {
-        box-shadow: 0px 0px 0px 0px #eee;
-    }
-
-    35% {
-        box-shadow: 0px 0px 10px 5px #eee;        
-    }
-
-    70% {
-        box-shadow: 0px 0px 10px 5px #ea830e;        
-    }
-
-    100% {
-        box-shadow: 0px 0px 0px 0px #ea830e;        
-    }
-}
-
-@-webkit-keyframes testim-content-in {
-    from {
-        opacity: 0;
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);        
-        transform: translateY(0);        
-    }
-}
-
-@-moz-keyframes testim-content-in {
-    from {
-        opacity: 0;
-        -moz-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    
-    to {
-        opacity: 1;
-        -moz-transform: translateY(0);        
-        transform: translateY(0);        
-    }
-}
-
-@-ms-keyframes testim-content-in {
-    from {
-        opacity: 0;
-        -ms-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    
-    to {
-        opacity: 1;
-        -ms-transform: translateY(0);        
-        transform: translateY(0);        
-    }
-}
-
-@-o-keyframes testim-content-in {
-    from {
-        opacity: 0;
-        -o-transform: translateY(100%);
-        transform: translateY(100%);
-    }
-    
-    to {
-        opacity: 1;
-        -o-transform: translateY(0);        
-        transform: translateY(0);        
-    }
-}
-
-@keyframes testim-content-in {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    
-    to {
-        opacity: 1;
-        transform: translateY(0);        
-    }
-}
-
-@-webkit-keyframes testim-content-out {
-    from {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    
-    to {
-        opacity: 0;
-        -webkit-transform: translateY(-100%);        
-        transform: translateY(-100%);        
-    }
-}
-
-@-moz-keyframes testim-content-out {
-    from {
-        opacity: 1;
-        -moz-transform: translateY(0);
-        transform: translateY(0);
-    }
-    
-    to {
-        opacity: 0;
-        -moz-transform: translateY(-100%);        
-        transform: translateY(-100%);        
-    }
-}
-
-@-ms-keyframes testim-content-out {
-    from {
-        opacity: 1;
-        -ms-transform: translateY(0);
-        transform: translateY(0);
-    }
-    
-    to {
-        opacity: 0;
-        -ms-transform: translateY(-100%);        
-        transform: translateY(-100%);        
-    }
-}
-
-@-o-keyframes testim-content-out {
-    from {
-        opacity: 1;
-        -o-transform: translateY(0);
-        transform: translateY(0);
-    }
-    
-    to {
-        opacity: 0;
-        transform: translateY(-100%);        
-        transform: translateY(-100%);        
-    }
-}
-
-@keyframes testim-content-out {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    to {
-        opacity: 0;
-        transform: translateY(-100%);        
-    }
-}
-
-@-webkit-keyframes testim-show {
-    from {
-        opacity: 0;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    to {
-        opacity: 1;
-        -webkit-transform: scale(1);       
-        transform: scale(1);       
-    }
-}
-
-@-moz-keyframes testim-show {
-    from {
-        opacity: 0;
-        -moz-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    to {
-        opacity: 1;
-        -moz-transform: scale(1);       
-        transform: scale(1);       
-    }
-}
-
-@-ms-keyframes testim-show {
-    from {
-        opacity: 0;
-        -ms-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    to {
-        opacity: 1;
-        -ms-transform: scale(1);       
-        transform: scale(1);       
-    }
-}
-
-@-o-keyframes testim-show {
-    from {
-        opacity: 0;
-        -o-transform: scale(0);
-        transform: scale(0);
-    }
-    
-    to {
-        opacity: 1;
-        -o-transform: scale(1);       
-        transform: scale(1);       
-    }
-}
-
-@keyframes testim-show {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    
-    to {
-        opacity: 1;
-        transform: scale(1);       
-    }
-}
-
-@-webkit-keyframes testim-hide {
-    from {
-        opacity: 1;
-        -webkit-transform: scale(1);       
-        transform: scale(1);       
-    }
-    
-    to {
-        opacity: 0;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-}
-
-@-moz-keyframes testim-hide {
-    from {
-        opacity: 1;
-        -moz-transform: scale(1);       
-        transform: scale(1);       
-    }
-    
-    to {
-        opacity: 0;
-        -moz-transform: scale(0);
-        transform: scale(0);
-    }
-}
-
-@-ms-keyframes testim-hide {
-    from {
-        opacity: 1;
-        -ms-transform: scale(1);       
-        transform: scale(1);       
-    }
-    
-    to {
-        opacity: 0;
-        -ms-transform: scale(0);
-        transform: scale(0);
-    }
-}
-
-@-o-keyframes testim-hide {
-    from {
-        opacity: 1;
-        -o-transform: scale(1);       
-        transform: scale(1);       
-    }
-    
-    to {
-        opacity: 0;
-        -o-transform: scale(0);
-        transform: scale(0);
-    }
-}
-
-@keyframes testim-hide {
-    from {
-        opacity: 1;
-        transform: scale(1);       
-    }
-    
-    to {
-        opacity: 0;
-        transform: scale(0);
-    }
-}
-
-@media all and (max-width: 300px) {
-	body {
-		font-size: 14px;
+@media screen and (max-width: 991px){
+	html{
+		font-size;55%;
 	}
-}
-
-@media all and (max-width: 500px) {
-	.testim .arrow {
-		font-size: 1.5em;
+	.header{
+		padding: 2rem;
 	}
-	
-	.testim .cont div p {
-		line-height: 25px;
-	}
-
+	.header .active{
+	padding: 2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 @media screen and (max-width: 768px){
+	.header #login-btn i{
+		display: block;
+	}
 
+	.header #login-btn .btn{
+		display: none;
+	}
 
 	.header .navbar{
-		right: :2rem; 
-	}
-	.header .login-form{
-		right: :2rem; 
-	}
-	#search-btn{
-	display: inline-block;
-}
-	.header .search-form{
 		position: absolute;
-		top: 115%; right: :2rem; 
+		top: 99%; left:0; right: 0;
 		background: #fff;
-		border-radius: .5rem;
-		width: 90%;
-		box-shadow:var(--box-shadow);
-		transform: scale(0);
-		transform-origin:top right;
+		border-top: var(--border);
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	}
 
-	.header .search-form.active{
-		transform: scale(1);
+	.header .navbar .active{
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	}
+
+
+
+	.header .navbar a{
+		display:block;
+		margin: 2rem;
+		font-size: 2rem; 
+	}
+	#menu-btn{
+	    display: block;
+    }
+
+    #menu-btn.fa-times{
+	    transform: rotate(180deg);
+    }
 
 
 }
+
 
 
 @media screen and (max-width: 450px){
 
 
 	html{
-		font-size: 50%;
+		font-size:50%;
 	}
 
 
@@ -1267,59 +824,44 @@
 
 <header class="header">
 
-<img src="qq.png" class="logo">
 
-<form action="" class="search-form">
-	<input type="search" name="" placeholder="search here..." id="searchBox">
-	<label for="searchBox" class="fa fa-search"></label>
-</form>
+<div id="menu-btn" class="fas fa-bars"></div>
 
-<div class="icons">
-	<div class="fas fa-search" id="search-btn"></div>
-	<div class="fas fa-moon" id="theme-btn"></div>
-	<div class="fas fa-user" id="login-btn"></div>
-	<div class="fas fa-bars" id="menu-btn"></div>
-</div>
+<a href="#" class="logo"><span>upendo</span>myfair</a>
 <nav class="navbar">
-	<a href="#">home</a>
-	<a href="#">packages</a>
-	<a href="#">Service</a>
-	<a href="#">pricing</a>
-	<a href="#">review</a>
-	<a href="#">contact</a>
-	<a href="#">blogs</a>
+	<a href="#home">home</a>
+	<a href="#jewels">jewels </a>
+	<a href="#services">Service</a>
+	<a href="#pricing">pricing</a>
+	<a href="#review">review</a>
+	<a href="#contact">contact</a>
+	<a href="#blogs">blogs</a>
 </nav>
-
-
-<form action="" class="login-form">
-	<div class="inputBox">
-		<span>username</span>
-		<input type="text" placeholder="enter your name">
-	</div>
-	<div class="inputBox">
-		<span>password</span>
-		<input type="text" placeholder="enter your password">
-	</div>
-	<div class="remember">
-		<input type="checkbox" name="" id="login-remember">
-		<label for="login-remember">remember me</label>
-	</div>
-
-	<input type="submit" class="btn" value="login">
-</form>
+<div id="login-btn">
+	<button class="btn">login</button>
+	<i class="far fa-user"></i>
+</div>
 </header>
+  
+
+  <div class="login-form-container">
+  	<span class="fas fa-times" id="close-login-form"></span>
+  	<form action="">
+  		<h3>user login</h3>
+  		<input type="email" placeholder="email" class="box">
+  		<input type="password" placeholder="password" class="box">
+  		<p>forget your password <a href="#">click here</a></p>
+  		<input type="submit" value="login now" class="btn">
+  		<p>or login with</p>
+  		<div class="buttons">
+  			<a href="#" class="btn">google</a>
+  			<a href="#" class="btn">fecebook</a>
+  		</div>
+  		<p>don't have an account<a href="#"> create one</a></p>
+  	</form>
+  </div>
 
 
-<section class="home">
-	<div class="image" data-aos="fade-down">
-		<img src="fafa1.jpg">
-	</div>
-	<div class="content" data-aos="fade-up">
-		<h3>Adventure is worthwhile</h3>
-		<p>Coming together is a beginning. Keeping together is progress. Working together is success.</p>
-		<a href="#" class="btn">explore now</a>
-	</div>
-</section>
 
 <section class="Services">
 	<h1 class="heading">our <span>services</span></h1>
@@ -1655,162 +1197,36 @@
 
 </body>
 <script src="https://use.fontawesome.com/1744f3f671.js"></script>
-<script src="href=https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="js/script.js">
-	let navbar = document.querySelector('.navbar')
+<script>
 
-	document.querySelector('#menu-btn').onclick = () =>{
-        navbar.classList.toggle('active');
-        loginForm.classList.remove('active');
-		searchForm.classList.remove('active');
-	}
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
 
-
-	let loginForm = document.querySelector('.login-form')
-
-	document.querySelector('#login-btn').onclick = () =>{
-        loginForm.classList.toggle('active');
-        navbar.classList.remove('active');
-		searchForm.classList.remove('active');
-	}
-
-	let searchForm = document.querySelector('.search-form')
-	
-	document.querySelector('#search-btn').onclick = () =>{
-        searchForm.classList.toggle('active');
-        navbar.classList.remove('active');
-		loginForm.classList.remove('active');
-	}
-
-	window.onscroll = () =>{
-		navbar.classList.remove('active');
-		loginForm.classList.remove('active');
-		searchForm.classList.remove('active');
-	}
-
-
-	let themeBtn = document.querySelector('theme-btn');
-
-
-    themeBtn.onclick = () =>{
-	    themeBtn.classList.toggle('fa-sun');
-
-    if (themeBtn.classList contains('fa-sun')) {
-    	document.body.classList.add('active')
-    }else{
-    	document.body.classList.remove('active')
-    }
-};
-
-// vars
-'use strict'
-var	testim = document.getElementById("testim"),
-		testimDots = Array.prototype.slice.call(document.getElementById("testim-dots").children),
-    testimContent = Array.prototype.slice.call(document.getElementById("testim-content").children),
-    testimLeftArrow = document.getElementById("left-arrow"),
-    testimRightArrow = document.getElementById("right-arrow"),
-    testimSpeed = 4500,
-    currentSlide = 0,
-    currentActive = 0,
-    testimTimer,
-		touchStartPos,
-		touchEndPos,
-		touchPosDiff,
-		ignoreTouch = 30;
-;
-
-window.onload = function() {
-
-    // Testim Script
-    function playSlide(slide) {
-        for (var k = 0; k < testimDots.length; k++) {
-            testimContent[k].classList.remove("active");
-            testimContent[k].classList.remove("inactive");
-            testimDots[k].classList.remove("active");
-        }
-
-        if (slide < 0) {
-            slide = currentSlide = testimContent.length-1;
-        }
-
-        if (slide > testimContent.length - 1) {
-            slide = currentSlide = 0;
-        }
-
-        if (currentActive != currentSlide) {
-            testimContent[currentActive].classList.add("inactive");            
-        }
-        testimContent[slide].classList.add("active");
-        testimDots[slide].classList.add("active");
-
-        currentActive = currentSlide;
-    
-        clearTimeout(testimTimer);
-        testimTimer = setTimeout(function() {
-            playSlide(currentSlide += 1);
-        }, testimSpeed)
-    }
-
-    testimLeftArrow.addEventListener("click", function() {
-        playSlide(currentSlide -= 1);
-    })
-
-    testimRightArrow.addEventListener("click", function() {
-        playSlide(currentSlide += 1);
-    })    
-
-    for (var l = 0; l < testimDots.length; l++) {
-        testimDots[l].addEventListener("click", function() {
-            playSlide(currentSlide = testimDots.indexOf(this));
-        })
-    }
-
-    playSlide(currentSlide);
-
-    // keyboard shortcuts
-    document.addEventListener("keyup", function(e) {
-        switch (e.keyCode) {
-            case 37:
-                testimLeftArrow.click();
-                break;
-                
-            case 39:
-                testimRightArrow.click();
-                break;
-
-            case 39:
-                testimRightArrow.click();
-                break;
-
-            default:
-                break;
-        }
-    })
-		
-		testim.addEventListener("touchstart", function(e) {
-				touchStartPos = e.changedTouches[0].clientX;
-		})
-	
-		testim.addEventListener("touchend", function(e) {
-				touchEndPos = e.changedTouches[0].clientX;
-			
-				touchPosDiff = touchStartPos - touchEndPos;
-			
-				console.log(touchPosDiff);
-				console.log(touchStartPos);	
-				console.log(touchEndPos);	
-
-			
-				if (touchPosDiff > 0 + ignoreTouch) {
-						testimLeftArrow.click();
-				} else if (touchPosDiff < 0 - ignoreTouch) {
-						testimRightArrow.click();
-				} else {
-					return;
-				}
-			
-		})
+menu.onclick =() =>{
+	menu.classList.toggle('fa-times');
+	navbar.classList.toggle('active');
 }
+
+window.onscroll =() =>{
+    if(window.scrollY > 0){
+    	document.querySelector('.header').classList.add('active');
+    }else{
+    	document.querySelector('.header').classList.remove('active')
+    }
+
+	menu.classList.toggle('fa-times');
+	navbar.classList.toggle('active');
+}
+
+window.onload =() =>{
+    if(window.scrollY> 0){
+    	document.querySelector('.header').classList.add('active');
+    }else{
+    	document.querySelector('.header').classList.remove('active')
+    }
+}
+
+	
 </script>
 </html>
