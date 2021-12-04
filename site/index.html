@@ -59,7 +59,7 @@
 
 
 	section{
-		padding: 2rem 7%;
+		padding: 2rem 9%;
 	}
 
 	.btn{
@@ -99,16 +99,104 @@
 }
 
 
-.header .navbar a{
-	margin:0 1rem;
-	font-size: 1.7rem;
-	color: var(--black);
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
 }
 
-.header .navbar a:hover{
-	color:var(--orange);
-	padding-left: 2rem;
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
 }
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: var(--orange);
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+  letter-spacing: .3rem;
+}
+
+.overlay .closebtn {
+  position: absolute;
+   font-size: 45px;
+   right: 12px;
+   color: var(--orange);
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  right: 35px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .header .btn{
 	margin-top: 0;
@@ -133,7 +221,7 @@
 
 .login-form-container{
 	position: fixed;
-	top: 105%; left: 0;
+	top: -105%; left: 0;
 	z-index: 1000;
 	height: 100%; 
 	width: 100%;
@@ -144,6 +232,10 @@
 	opacity: 0;
 }
 
+.login-form-container .active{
+	top: 0;
+	opacity: 1;
+}
 
 .login-form-container form{
 	padding: 2rem;
@@ -210,74 +302,134 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .home{
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap:1.5rem;
-	padding-top: 7rem;
+	padding-top: 10rem;
+	text-align: center;
+	overflow-x: hidden;
 }
 
-.home .image{
-	flex:1 1 45rem;
+
+.home h1{
+	font-size: 7.5vw;
+	text-transform: uppercase;
+	color: var(--black);
 }
 
-.home .image img{
+.home img{
 	width: 100%;
+	margin: 1rem 0;
 }
 
-.home .content{
-	flex:1 1 45rem;
+
+
+.vehicles .vehicles-slider{
+	padding-bottom: 5rem;
 }
 
-.home .content h3{
-	color: var(--text-color-1);
-	font-size: 4rem;
+.vehicles .vehicles-slider .box{
+	text-align: center;
+	width: 30rem;
 }
 
-.home .content p{
-	color: var(--text-color-2);
-	font-size: 2.0rem;
-	line-height: 1.7;
+.vehicles .vehicles-slider .box img{
+	width: 100%;
+	opacity: -5;
+	transform: scale(.8);
+}
+
+.vehicles .vehicles-slider .box .content{
+	transform: scale(0);
+	padding-top: 1rem;
+}
+
+.vehicles .vehicles-slider .box .content h3{
+	font-size: 2.5rem;
+	color: var(--black);
+}
+
+
+.vehicles .vehicles-slider .box .content .price{
+	font-size: 2,5rem;
+	color: var(--orange);
 	padding: 1rem 0;
+	font-weight: bolder;
 }
+
+.vehicles .vehicles-slider .box .content .price span{
+	font-size: 1.5rem;
+	color: var(--text-color-1);
+	font-weight: normal;
+}
+
+
+.vehicles .vehicles-slider .box .content p{
+	font-size: 1.6rem;
+	color: var(--text-color-1);
+	padding-top: 1.5rem;
+	padding: 1.5rem;
+	border-top: var(--border);
+	
+}
+
+.vehicles .vehicles-slider .box .content p span{
+	font-size: .8rem;
+	color: var(--orange);
+	padding: 0.5rem;
+	border-top: var(--border);
+	
+}
+
+.vehicles .vehicles-slider .swiper-slide-active img{
+	opacity: 1;
+	transform: scale(1;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -560,6 +712,9 @@
 
 
 
+
+
+
 .testim {
 		
 		box-shadow: var(--box-shadow);
@@ -727,6 +882,10 @@
 	.header .active{
 	padding: 2rem;
 }
+section{
+		padding: 2rem;
+	}
+
 }
 
 @media screen and (max-width: 768px){
@@ -738,25 +897,7 @@
 		display: none;
 	}
 
-	.header .navbar{
-		position: absolute;
-		top: 99%; left:0; right: 0;
-		background: #fff;
-		border-top: var(--border);
-		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-	}
-
-	.header .navbar .active{
-		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-	}
-
-
-
-	.header .navbar a{
-		display:block;
-		margin: 2rem;
-		font-size: 2rem; 
-	}
+	
 	#menu-btn{
 	    display: block;
     }
@@ -825,27 +966,37 @@
 <header class="header">
 
 
-<div id="menu-btn" class="fas fa-bars"></div>
+<div id="login-btn">
+	<button class="btn">login</button>
+	<i class="far fa-user"></i>
+	
+</div>
 
 <a href="#" class="logo"><span>upendo</span>myfair</a>
-<nav class="navbar">
-	<a href="#home">home</a>
+	<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+
+  <div class="overlay-content">
+    <a href="#home">home</a>
 	<a href="#jewels">jewels </a>
 	<a href="#services">Service</a>
 	<a href="#pricing">pricing</a>
 	<a href="#review">review</a>
 	<a href="#contact">contact</a>
 	<a href="#blogs">blogs</a>
-</nav>
-<div id="login-btn">
-	<button class="btn">login</button>
-	<i class="far fa-user"></i>
+  </div>
 </div>
-</header>
   
+<span style="font-size:30px;cursor:pointer; color: var(--orange)" onclick="openNav()">&#9776; </span>
 
-  <div class="login-form-container">
-  	<span class="fas fa-times" id="close-login-form"></span>
+
+</header>
+
+
+
+ 
+  	<div class="login-form-container">
   	<form action="">
   		<h3>user login</h3>
   		<input type="email" placeholder="email" class="box">
@@ -860,11 +1011,80 @@
   		<p>don't have an account<a href="#"> create one</a></p>
   	</form>
   </div>
+</div>
 
+
+<section class="home" id="home">
+	<h1 class="home-parallax" data-speed="-2">get your jewel  </h1>
+	<img class="home-parallax" data-speed="5" src="img9.jpg">
+	<a href="#" class="btn home-parallax" data-speed="7" class="btn">order now</a>
+</section>
+
+<section class="vahicles">
+	<h1 class="heading">popular<span>jewels</span></h1>
+	<div class="swiper .vehicles-slider">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide box">
+				<img src="img.jpg">
+				<div class="content">
+					<h3>new design</h3>
+					<div class="price"><span>price:</span>2000/=</div>
+					<p>
+				      new
+						<span class="fas fs-circle"></span>2021
+						<span class="fas fs-circle"></span>original
+					</p>
+					<a href="#" class="btn">check out</a>
+				</div>
+			</div>
+			<div class="swiper-slide box">
+				<img src="img5.jpg">
+				<div class="content">
+					<h3>new design</h3>
+					<div class="price"><span>price:</span>2000/=</div>
+					<p>
+				      new
+						<span class="fas fs-circle"></span>2021
+						<span class="fas fs-circle"></span>original
+					</p>
+					<a href="#" class="btn">check out</a>
+				</div>
+			</div>
+			<div class="swiper-slide box">
+				<img src="img8.jpg">
+				<div class="content">
+					<h3>new design</h3>
+					<div class="price"><span>price:</span>2000/=</div>
+					<p>
+				      new
+						<span class="fas fs-circle"></span>2021
+						<span class="fas fs-circle"></span>original
+					</p>
+					<a href="#" class="btn">check out</a>
+				</div>
+			</div>
+			<div class="swiper-slide box">
+				<img src="img10.jpg">
+				<div class="content">
+					<h3>new design</h3>
+					<div class="price"><span>price:</span>2000/=</div>
+					<p>
+				      new
+						<span class="fas fs-circle"></span>2021
+						<span class="fas fs-circle"></span>original
+					</p>
+					<a href="#" class="btn">check out</a>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+</section>
 
 
 <section class="Services">
 	<h1 class="heading">our <span>services</span></h1>
+	
 
 	<div class="box-container">
 		
@@ -1089,12 +1309,12 @@
 </section>
 
 
-<section class="blogs">
+<section class="blogs" id="blogs">
 	<h1 class="heading"> our <span>blogs</span></h1>
 	<div class="box-container">
 		<div class="box">
 			<div class="image">
-			<img src="qq.png">
+			<img src="img2.jpg">
 		 </div>
 		 <div class="content">
 			<h3>explore the world now, adventure awaits</h3>
@@ -1108,7 +1328,7 @@
 	</div>
 		<div class="box">
 			<div class="image">
-			<img src="qq.png">
+			<img src="img3.jpg">
 		 </div>
 		 <div class="content">
 			<h3>explore the world now, adventure awaits</h3>
@@ -1122,7 +1342,7 @@
 	</div>
 	<div class="box">
 			<div class="image">
-			<img src="qq.png">
+			<img src="img11.jpg">
 		 </div>
 		 <div class="content">
 			<h3>explore the world now, adventure awaits</h3>
@@ -1200,33 +1420,85 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 
-let menu = document.querySelector('#menu-btn');
-let navbar = document.querySelector('.navbar');
 
-menu.onclick =() =>{
-	menu.classList.toggle('fa-times');
-	navbar.classList.toggle('active');
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
 }
 
-window.onscroll =() =>{
-    if(window.scrollY > 0){
-    	document.querySelector('.header').classList.add('active');
-    }else{
-    	document.querySelector('.header').classList.remove('active')
-    }
-
-	menu.classList.toggle('fa-times');
-	navbar.classList.toggle('active');
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
 }
 
-window.onload =() =>{
-    if(window.scrollY> 0){
-    	document.querySelector('.header').classList.add('active');
-    }else{
-    	document.querySelector('.header').classList.remove('active')
-    }
+
+document.querySelector('#login-btn').onclick = () =>{
+	document.querySelector('login-form-container').classList.toggle('active');
+} 
+
+document.querySelector('#close-login-form').onclick = () =>{
+	document.querySelector('login-form-container').classList.remove('active');
 }
 
-	
+var swiper = new swiper('.mySwiper',{
+	slidesPerView:1,
+	spaceBetween:20,
+	loop:true,
+	grabCursor:true,
+	autoplay:{
+		delay:95000,
+		disableOnInterraction:false,
+	}
+	pagenation:{
+		el ".swiper-pagination",
+		clickable:tue,
+	},
+	breakpoints:{
+		0:{
+			slidesPerView:1,
+		},
+		768:{
+			slidesPerView:2,
+		},
+		991:{
+			slidesPerView:4,
+		},
+	}
+}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
+	
+
 </html>
